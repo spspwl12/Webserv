@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Upload</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <style>
+        #myProgress {
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        #myBar {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+        }
+    </style>
+    <script>
+        function MakeSession(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++)
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            return result;
+        }
+        function uploadform() {
+            var upform = document.upload;
+            var session = MakeSession(10);
+            upform.action = 'upload?s=' + session;
+            upform.s = session;
+            upform.submit();
+            document.getElementById('dialog').innerHTML = "<div id='myProgress'><div id='myBar'></div></div>";
+            var a = 0;
+            setInterval(function () {
+                var b = new XMLHttpRequest();
+                b.onreadystatechange = function () {
+                    if (this.status == 200 && this.readyState == this.DONE) {
+                        var d = JSON.parse(b.responseText);
+                        var e = document.getElementById('myBar');
+                        var c = d.pos / d.length * 100;
+                        e.style.width = c + '%';
+                    }
+                };
+                b.open('GET', './upstatus?s=' + session, !0);
+                b.send();
+            }, 500);
+        }
+    </script>
+</head>
+
+<body>
+    <div id='dialog'>
+        <fieldset id='upload'>
+            <form name='upload' method='post' enctype='multipart/form-data' style='width: 100%;'>
+                <input type='file' name='filename' multiple style='display:block;' />
+                <input type='button' value='Upload' style='margin-top:0.5em;' onclick='uploadform()' />
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>
