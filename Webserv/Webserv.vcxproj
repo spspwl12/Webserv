@@ -75,7 +75,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>_bulid\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>_build\$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)zlib\zlib;$(IncludePath);</IncludePath>
     <LibraryPath>$(ProjectDir)zlib\bin;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)d</TargetName>
@@ -86,12 +86,12 @@
     <IncludePath>$(ProjectDir)zlib\zlib;$(IncludePath);</IncludePath>
     <LibraryPath>$(ProjectDir)zlib\bin;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>_bulid\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>_build\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <IntDir>_bulid\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>_build\$(Platform)\$(Configuration)\</IntDir>
     <ReferencePath>$(ReferencePath);</ReferencePath>
     <IncludePath>$(ProjectDir)zlib\zlib;$(IncludePath);</IncludePath>
     <LibraryPath>$(ProjectDir)zlib\bin;$(LibraryPath)</LibraryPath>
@@ -102,7 +102,7 @@
     <TargetName>$(ProjectName)_x64</TargetName>
     <IncludePath>$(ProjectDir)zlib\zlib;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)zlib\bin;$(LibraryPath)</LibraryPath>
-    <IntDir>_bulid\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>_build\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
