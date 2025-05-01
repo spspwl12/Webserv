@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <title>Chat</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <style type='text/css'>
+        #chat {
+            border: solid 1px #999999;
+            border-top-color: #CCCCCC;
+            border-left-color: #CCCCCC;
+            padding: 5px;
+            width: 99%;
+            height: 90%;
+            overflow-y: scroll;
+        }
+
+        #sendMessage {
+            width: 75%;
+        }
+
+        #send {
+            width: 20%;
+        }
+    </style>
+    <script language='javascript' type='text/javascript'>
+        function testWebSocket() {
+            websocket = new WebSocket('ws://%%%SERVER_IP%%%/sock'),
+                websocket.onclose = function (a) {
+                    onClose(a);
+                }
+                ,
+                websocket.onmessage = function (a) {
+                    onMessage(a);
+                }
+                ;
+        }
+        function init() {
+            var a = document.getElementById('sendMessage');
+            output = document.getElementById('chat'),
+                a.onkeypress = function (b) {
+                    b || (b = window.event);
+                    var c = b.keyCode || b.which;
+                    return c == '13' ? (doSend(a.value),
+                        a.value = '',
+                        !1) : void 0;
+                }
+                ;
+            var b = document.getElementById('send');
+            b.onclick = function () {
+                doSend(a.value),
+                    a.value = '';
+            }
+                ;
+            var c = document.getElementById('cls');
+            c.onclick = function () {
+                output.innerHTML = '';
+            }
+                ,
+                testWebSocket();
+        }
+        function onClose(a) {
+            writeToScreen('', 'The connection to the server has been lost.');
+        }
+        function onMessage(a) {
+            a.data == 'PING' ? websocket.send('PONG') : writeToScreen('', a.data);
+        }
+        function doSend(a) {
+            if (a.length > 2000) {
+                writeToScreen('red', 'Please write a message with fewer than 2000 characters.');
+                return;
+            }
+            a.length > 0 && websocket.send(a);
+        }
+        function writeToScreen(b, c) {
+            var a = document.createElement('p');
+            a.style.marginBlockStart = '0',
+                a.style.marginBlockEnd = '0',
+                b != '' && (a.style.color = b),
+                a.innerHTML = c.replaceAll('<', '&lt;').replaceAll('>', '&gt;'),
+                output.appendChild(a),
+                output.scrollTop = output.scrollHeight;
+        }
+        var output;
+        window.addEventListener('load', init, !1);
+    </script>
+</head>
+
+<body>
+    <div id='chat'></div>
+    <input class='draw-border' id='sendMessage' size='100%' value=''>
+    <button class='echo-button' id='send' class='wsButton'>Send</button>
+    <button class='echo-button' id='cls' class='wsButton'>Clear</button>
+</body>
+
+</html>
