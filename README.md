@@ -62,4 +62,21 @@
 - zlibd_x64.lib ( https://www.virustotal.com/gui/file/79d32aabd5335c3e3adac77e98daf25446fdb31a3ba04307b3b5ced4884eb7b8 )
   ![x64](https://github.com/user-attachments/assets/8748bb92-43a3-499a-9a52-cb68b1d400ac)
 
+## 작동 화면 
+### 조작
+![Animation7](https://github.com/user-attachments/assets/9504fbea-7208-41b5-b3f6-099441847f9a)
+### 파일 다운로드
+![Animation1](https://github.com/user-attachments/assets/f9fc6b25-a15d-4786-9a3c-6622ddea56ba)
+### 파일 크롬에서 열기
+![Animation2](https://github.com/user-attachments/assets/cebf413e-d2cd-434d-a313-acfa95ddab19)
+### 폴더 브라우징
+![Animation21](https://github.com/user-attachments/assets/8cb36ba6-7303-403b-ba59-da8312b27ad5)
+### 업로드
+![Animation4](https://github.com/user-attachments/assets/dfff2fb3-3560-408b-a4c3-a23b07e6ca7f)
+
+
+
+
+
+
 
