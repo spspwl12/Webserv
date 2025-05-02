@@ -73,10 +73,5 @@
 ![Animation21](https://github.com/user-attachments/assets/8cb36ba6-7303-403b-ba59-da8312b27ad5)
 ### 업로드
 ![Animation4](https://github.com/user-attachments/assets/dfff2fb3-3560-408b-a4c3-a23b07e6ca7f)
-
-
-
-
-
-
-
+### 웹소켓 채팅
+![Animation5](https://github.com/user-attachments/assets/3b737056-a8de-4d98-8199-43171004fd19)
