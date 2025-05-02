@@ -67,7 +67,7 @@
 ![Animation7](https://github.com/user-attachments/assets/9504fbea-7208-41b5-b3f6-099441847f9a)
 ### 파일 다운로드
 ![Animation1](https://github.com/user-attachments/assets/f9fc6b25-a15d-4786-9a3c-6622ddea56ba)
-### 파일 크롬에서 열기
+### 파일 크롬에서 열기 ( HTTP Range Requests 포함 )
 ![Animation2](https://github.com/user-attachments/assets/cebf413e-d2cd-434d-a313-acfa95ddab19)
 ### 폴더 브라우징
 ![Animation21](https://github.com/user-attachments/assets/8cb36ba6-7303-403b-ba59-da8312b27ad5)
