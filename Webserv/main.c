@@ -317,14 +317,23 @@ BrowserFolder(
 	LPITEMIDLIST	pidlBrowse;
 	BROWSEINFO		brInfo = { 0 };
 
+	DWORD attributes = GetFileAttributes(ResultPath);
+
+	if (INVALID_FILE_ATTRIBUTES != attributes && 
+		0 == (attributes & FILE_ATTRIBUTE_DIRECTORY))
+	{
+		char* ptr = strrchr(ResultPath, '\\');
+
+		if (ptr)
+			*ptr = 0;
+	}
+
 	brInfo.ulFlags = BIF_RETURNONLYFSDIRS | BIF_STATUSTEXT | BIF_VALIDATE;
 	brInfo.hwndOwner = hWndOwner;
 	brInfo.pszDisplayName = ResultPath;
 	brInfo.lpszTitle = DialogTitle;
 	brInfo.lpfn = BrowseCallbackProc;
 	brInfo.lParam = (LPARAM)ResultPath;
-
-	memset(ResultPath, 0, PathLen);
 
 	if (pidlBrowse = SHBrowseForFolder(&brInfo))
 	{
