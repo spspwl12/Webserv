@@ -239,15 +239,15 @@ DlgProc(
 							// 리소스 해제
 							GetResourcesFile(((void*)-1), 0);
 							HTTP_MIME(((void*)-1));
-
-							EnableWindow(GetDlgItem(hDlg, IDC_UPLOADPATH), Sgv.UpChat & 0x01);
-							EnableWindow(GetDlgItem(hDlg, IDC_BROWSEUPPATH), Sgv.UpChat & 0x01);
 						}
 
 						SendDlgItemMessage(hDlg, IDC_WEBSERVSTART, WM_SETTEXT, (WPARAM)5, (LPARAM)(Sgv.bStartServ ? "Stop" : "Start"));
 
 						for (DWORD Index = IDC_SERVERIP; Index <= IDC_PORT; ++Index)
 							EnableWindow(GetDlgItem(hDlg, Index), !Sgv.bStartServ);
+
+						EnableWindow(GetDlgItem(hDlg, IDC_UPLOADPATH), Sgv.UpChat & 0x01);
+						EnableWindow(GetDlgItem(hDlg, IDC_BROWSEUPPATH), Sgv.UpChat & 0x01);
 
 						break;
 					}
